@@ -74,14 +74,25 @@ function jokesFavPage(req, res) {
 function addJokeToList(req, res) {
     let { id, type, setup, punchline } = req.body;
     let VALUES = [id, type, setup, punchline];
-    let SQL = `INSERT INTO jokes (id, type, setup, punchline)
-     VALUES( ${id} , ${type} , ${setup} , ${punchline} );`;
+    setup = setup.toString();
+    punchline = punchline.toString();
+
+
+
+    let SQL = `INSERT INTO jokes (id, type, setup, punchline) VALUES(${id}, ${type}, ${setup}, ${punchline});`;
     console.log('sql: ', SQL);
     // let SQL = `INSERT INTO jokes (id, type, setup, punchline) VALUES (${id}, ${type}, ${setup}, ${punchline});`;
     // console.log('id: ', id);
-    client.query(SQL).then(data => {
-        res.redirect('jokesFavPage');
-    })
+    try {
+        client.query(SQL, VALUES).then(data => {
+            res.redirect('jokesFavPage');
+        })
+
+    } catch (error) {
+        console.log('error:', error);
+
+    }
+
 }
 
 function homePage(req, res) {
