@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="jokeCard">
+
+
+
+
+        <% for(var i=0; i<favJokesArray.length; i++) {%>
+            <h2>
+                <%= favJokesArray[i].type %>
+            </h2>
+            <h2>
+                <%= favJokesArray[i].setup %>
+            </h2>
+            <h2>
+                <%= favJokesArray[i].punchline %>
+            </h2>
+            <form action="/jokeDetails" method="POST">
+                <input type="hidden" id="team_name" name="id" value="<%= favJokesArray[i].id %>">
+                <input type="hidden" id="team_name" name="type" value="<%= favJokesArray[i].type %>">
+                <input type="hidden" id="team_name" name="setup" value=" <%= favJokesArray[i].setup %>">
+                <input type="hidden" id="team_name" name="punchline" value=" <%= favJokesArray[i].punchline %>">
+                <button type="submit">view details</button>
+            </form>
+
+
+            <% } %>
+
+
+    </div>
+
+</body>
+
+</html>

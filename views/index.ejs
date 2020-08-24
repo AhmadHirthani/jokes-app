@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="/getRandomJoke" method="POST">
+        <button type="submit">Get random Joke</button>
+    </form>
+    <h1>nav</h1>
+
+
+    <div id="jokeCard">
+
+
+
+
+        <% for(var i=0; i<jokesArray.length; i++) {%>
+            <h2>
+                <%= jokesArray[i].id %>
+            </h2>
+            <h2>
+                <%= jokesArray[i].type %>
+            </h2>
+            <h2>
+                <%= jokesArray[i].setup %>
+            </h2>
+            <h2>
+                <%= jokesArray[i].punchline %>
+            </h2>
+            <form action="/addJokeToList" method="POST">
+                <input type="hidden" id="team_name" name="id" value="<%= jokesArray[i].id %>">
+                <input type="hidden" id="team_name" name="type" value="<%= jokesArray[i].type %>">
+                <input type="hidden" id="team_name" name="setup" value=" <%= jokesArray[i].setup %>">
+                <input type="hidden" id="team_name" name="punchline" value=" <%= jokesArray[i].punchline %>">
+                <button type="submit">Add to my list</button>
+            </form>
+            <% } %>
+
+
+    </div>
+
+</body>
+
+</html>

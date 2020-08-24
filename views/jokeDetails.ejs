@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="jokeCard">
+
+
+
+
+
+
+        <h2>
+            <%= id %>
+        </h2>
+        <h2>
+            <%= type %>
+        </h2>
+        <h2>
+            <%= setup %>
+        </h2>
+        <h2>
+            <%= punchline %>
+        </h2>
+        <form action="/jokeDetails" method="POST">
+            <input type="hidden" id="team_name" name="id" value="<%= id %>">
+
+            <button type="submit">delete joke</button>
+        </form>
+
+
+
+
+
+
+
+    </div>
+
+</body>
+
+</html>
