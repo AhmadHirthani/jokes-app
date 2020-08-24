@@ -79,7 +79,7 @@ function addJokeToList(req, res) {
 
 
 
-    let SQL = `INSERT INTO jokes (id, type, setup, punchline) VALUES(${id}, ${type}, ${setup}, ${punchline});`;
+    let SQL = `INSERT INTO jokes (id, type, setup, punchline) VALUES('${id}', '${type}', '${setup}', '${punchline}');`;
     console.log('sql: ', SQL);
     // let SQL = `INSERT INTO jokes (id, type, setup, punchline) VALUES (${id}, ${type}, ${setup}, ${punchline});`;
     // console.log('id: ', id);
